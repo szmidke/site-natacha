@@ -1,125 +1,847 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Natacha Szmidke | Psicóloga</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      line-height: 1.6;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natacha Szmidke | Psicóloga Clínica — CRP 06/124744</title>
+    <meta name="description" content="Atendimento psicológico online para adolescentes e adultos com base na psicanálise. Natacha Szmidke — Psicóloga Clínica (CRP 06/124744).">
 
-    header {
-      background-color: #CBA6A2;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
+    <!-- Google Fonts: Playfair Display (Títulos editoriais) e Plus Jakarta Sans (Corpo limpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    nav {
-      background-color: #444;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-    }
+    <!-- Configuração da Identidade Visual em Bordô -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FDFBF9',          // Fundo principal off-white/creme muito suave
+                        'cream-rose': '#FAF4F5',     // Fundo secundário creme rosado
+                        'rose-soft': '#F3E6E8',      // Formas orgânicas e superfícies suaves
+                        'rose-border': '#E3CDD1',    // Bordas finas e faixas de destaque
+                        'bordeaux': '#5A1824',       // Cor principal (títulos, botões, detalhes)
+                        'bordeaux-dark': '#43101A',  // Hover dos botões bordô
+                        'bordeaux-muted': '#8A4B56', // Bordô médio / rosa queimado para subtítulos
+                        'ink': '#2D1E21',            // Texto principal
+                        'ink-muted': '#6E565B',      // Texto secundário
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'editorial': '0 14px 36px -14px rgba(90, 24, 36, 0.10)',
+                        'soft': '0 6px 22px -6px rgba(90, 24, 36, 0.07)',
+                    }
+                }
+            }
+        }
+    </script>
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
+    <!-- Estilos auxiliares para animações suaves e acordeão interativo -->
+    <style>
+        /* Animação de entrada suave ao rolar a página */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      text-align: justify;
-    }
+        /* Acordeão suave das Dúvidas Frequentes */
+        .faq-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease;
+        }
+        .faq-item[data-open="true"] .faq-content {
+            grid-template-rows: 1fr;
+        }
+        .faq-inner {
+            overflow: hidden;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item[data-open="true"] .faq-icon {
+            transform: rotate(45deg);
+        }
 
-    h2 {
-      color: #CBA6A2;
-    }
-
-    footer {
-      background-color: #eee;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    .whatsapp-button {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      margin-top: 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-  </style>
+        /* Compensa a altura da barra fixa ao navegar pelos links */
+        section[id] {
+            scroll-margin-top: 84px;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-cream text-ink font-sans antialiased selection:bg-rose-border selection:text-bordeaux overflow-x-hidden">
 
-  <header>
-    <h1>Natacha Szmidke</h1>
-    <p>Psicóloga | CRP 06/124744</p>
-    <p>Atendimento Online para Adolescentes e Adultos</p>
-  </header>
+    <!-- =========================================================================
+         PRONTO PARA SUBIR NO GITHUB PAGES (www.natachaszmidke.com.br)
+         Basta subir este arquivo como "index.html" junto com suas duas fotos
+         na mesma pasta do repositório com os nomes exatos:
+           - natacha02.jpeg  (Foto principal no Hero)
+           - natacha01.jpeg  (Foto na seção Sobre Mim)
+         ========================================================================= -->
 
-  <nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#terapia">Terapia</a>
-    <a href="#valores">Valores</a>
-    <a href="#contato">Contato</a>
-  </nav>
+    <!-- ==================== 1. BARRA DE NAVEGAÇÃO FIXA ==================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-rose-border/60 transition-shadow duration-300">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+            <!-- Identidade / Nome à esquerda -->
+            <a href="#inicio" class="group flex flex-col">
+                <span class="font-serif italic text-xl sm:text-2xl text-bordeaux tracking-tight leading-none group-hover:text-bordeaux-muted transition-colors">
+                    Natacha Szmidke
+                </span>
+                <span class="text-[11px] tracking-[0.18em] uppercase text-bordeaux-muted mt-1 font-medium">
+                    CRP 06/124744
+                </span>
+            </a>
 
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>Sou psicóloga formada pela Universidade Anhanguera desde 2014, com atuação clínica desde 2013, quando iniciei meus estágios supervisionados. Durante esse período, participei ativamente da triagem de pacientes e condução de grupos terapêuticos, o que despertou em mim uma profunda vocação para o cuidado psicológico com sensibilidade e escuta qualificada.</p>
+            <!-- Links de Navegação (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm text-ink/90 font-normal" aria-label="Navegação principal">
+                <a href="#sobre" class="hover:text-bordeaux transition-colors py-1">Sobre</a>
+                <a href="#terapia" class="hover:text-bordeaux transition-colors py-1">Terapia</a>
+                <a href="#como-funciona" class="hover:text-bordeaux transition-colors py-1">Como Funciona</a>
+                <a href="#valores" class="hover:text-bordeaux transition-colors py-1">Valores</a>
+                <a href="#duvidas" class="hover:text-bordeaux transition-colors py-1">Dúvidas</a>
+                <a href="#contato" class="hover:text-bordeaux transition-colors py-1">Contato</a>
+            </nav>
 
-<p>Desde então, venho me dedicando à prática clínica, com experiência tanto em clínicas conveniadas quanto, desde 2022, no atendimento em minha própria clínica online, oferecendo um espaço acolhedor, ético e seguro para cada pessoa que busca apoio emocional.</p>
+            <!-- Botão Agendar + Botão Menu Mobile -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-bordeaux text-cream text-sm font-medium hover:bg-bordeaux-dark transition-all shadow-soft">
+                    <span>Agendar</span>
+                </a>
 
-<p>Em 2022, participei de um projeto social como psicóloga, atendendo pacientes com valores acessíveis. Além disso, atuei como diretora de cuidado interno, promovendo o bem-estar dos colegas psicólogos envolvidos — uma experiência que reforçou ainda mais meu compromisso com a saúde mental em suas múltiplas dimensões.</p>
+                <button id="menu-toggle"
+                        type="button"
+                        aria-label="Abrir menu de navegação"
+                        aria-expanded="false"
+                        class="lg:hidden p-2.5 rounded-xl border border-rose-border text-bordeaux hover:bg-rose-soft transition-colors">
+                    <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                    <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-<p>Em constante evolução profissional, iniciei minha formação em Psicanálise em 2024, aprofundando meu olhar sobre o sujeito e suas singularidades. Em 2025, dei mais um passo em direção à integração de saberes, começando a cursar Direito com o objetivo de, futuramente, unir psicologia e justiça em benefício de quem mais precisa.</p>
+        <!-- Menu Mobile Expansível -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream border-b border-rose-border/70 px-6 pb-6 pt-2 shadow-editorial">
+            <nav class="flex flex-col space-y-1 text-base text-ink" aria-label="Navegação mobile">
+                <a href="#sobre" class="mobile-link py-2.5 border-b border-rose-border/40 hover:text-bordeaux">Sobre</a>
+                <a href="#terapia" class="mobile-link py-2.5 border-b border-rose-border/40 hover:text-bordeaux">Terapia</a>
+                <a href="#como-funciona" class="mobile-link py-2.5 border-b border-rose-border/40 hover:text-bordeaux">Como Funciona</a>
+                <a href="#valores" class="mobile-link py-2.5 border-b border-rose-border/40 hover:text-bordeaux">Valores</a>
+                <a href="#duvidas" class="mobile-link py-2.5 border-b border-rose-border/40 hover:text-bordeaux">Dúvidas</a>
+                <a href="#contato" class="mobile-link py-2.5 hover:text-bordeaux">Contato</a>
+                <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="mt-4 inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-full bg-bordeaux text-cream text-sm font-medium hover:bg-bordeaux-dark transition-colors">
+                    Agendar pelo WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
 
-<p>Atendo adolescentes e adultos, com escuta atenta e empática, sempre respeitando o tempo e a história de cada um. Estou aqui para caminhar ao seu lado em direção a uma vida com mais consciência, autonomia e bem-estar.
-</p>
-  </section>
+    <main>
+        <!-- ==================== 2. HERO (PRIMEIRA TELA) ==================== -->
+        <section id="inicio" class="relative pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-40 lg:pb-32 overflow-hidden">
+            <!-- Forma orgânica abstrata + Linha curva (Canto superior esquerdo) -->
+            <svg class="pointer-events-none select-none absolute -top-10 -left-14 w-56 sm:w-80 lg:w-96 opacity-80" viewBox="0 0 360 360" fill="none" aria-hidden="true">
+                <path d="M-20 0H210C185 75 150 135 90 185C45 222 10 250 -20 275V0Z" fill="#F3E6E8"/>
+                <path d="M165 -10C140 70 118 140 52 210C22 242 2 260 -18 282" stroke="#8A4B56" stroke-width="1.2" stroke-opacity="0.5" fill="none"/>
+            </svg>
 
-  <section id="terapia">
-    <h2>Sobre a Terapia</h2>
-    <p>A psicanálise oferece um espaço de escuta profunda, em que o sujeito pode falar livremente sobre seus pensamentos, afetos, conflitos e repetições. Não se trata de conselhos ou respostas prontas, mas de um processo onde, pela fala, o sujeito se escuta e constrói novos sentidos.</p>
-    <p>Atendo questões como: ansiedade, angústia, relações familiares, dificuldades profissionais, sentimentos de inadequação e experiências da adolescência.</p>
-  </section>
+            <!-- Forma orgânica + Ramo botânico em line art (Canto superior direito) -->
+            <svg class="pointer-events-none select-none absolute top-14 -right-10 sm:top-16 sm:right-0 w-48 sm:w-72 lg:w-80 opacity-90" viewBox="0 0 340 340" fill="none" aria-hidden="true">
+                <path d="M350 0V260C285 235 238 190 212 135C188 85 170 40 140 0H350Z" fill="#F3E6E8" fill-opacity="0.75"/>
+                <g stroke="#5A1824" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+                    <path d="M332 238C285 182 236 128 168 62"/>
+                    <path d="M198 92C195 66 176 48 152 44C158 68 175 88 198 92Z"/>
+                    <path d="M192 86L164 56" stroke-width="0.9"/>
+                    <path d="M238 132C242 104 226 80 202 72C204 98 217 122 238 132Z"/>
+                    <path d="M232 126L211 86" stroke-width="0.9"/>
+                    <path d="M276 172C285 142 272 114 250 102C248 130 258 156 276 172Z"/>
+                    <path d="M271 165L256 118" stroke-width="0.9"/>
+                    <path d="M308 208C322 182 315 154 295 140C290 168 295 192 308 208Z"/>
+                    <path d="M214 108C188 106 164 114 148 130C172 134 198 126 214 108Z"/>
+                    <path d="M206 112L164 124" stroke-width="0.9"/>
+                    <path d="M254 150C226 146 200 156 184 174C210 178 238 169 254 150Z"/>
+                    <path d="M245 154L200 168" stroke-width="0.9"/>
+                    <path d="M290 188C262 188 238 200 226 220C252 220 276 208 290 188Z"/>
+                    <path d="M282 193L242 212" stroke-width="0.9"/>
+                </g>
+            </svg>
 
-  <section id="valores">
-    <h2>Sobre os Valores</h2>
-    <p>Freud já dizia que o valor da sessão não é apenas econômico, mas simbólico. O pagamento participa da própria construção do processo analítico. Por isso, não informo valores diretamente no site, mas converso caso a caso de acordo com as possibilidades e o compromisso do processo. Entre em contato para saber mais.</p>
-  </section>
+            <!-- Forma orgânica + Ramo botânico delicado (Canto inferior esquerdo) -->
+            <svg class="pointer-events-none select-none absolute -bottom-10 -left-10 w-44 sm:w-60 opacity-80" viewBox="0 0 280 280" fill="none" aria-hidden="true">
+                <path d="M0 105C65 125 112 162 145 215C162 242 175 262 185 280H0V105Z" fill="#F3E6E8" fill-opacity="0.75"/>
+                <g stroke="#5A1824" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" opacity="0.78">
+                    <path d="M18 268C48 214 78 168 118 118"/>
+                    <path d="M96 146C96 122 108 102 126 92C126 116 115 136 96 146Z"/>
+                    <path d="M74 178C72 152 84 130 102 118C104 144 92 166 74 178Z"/>
+                    <path d="M52 214C48 188 60 164 78 152C80 178 69 200 52 214Z"/>
+                    <path d="M84 162C106 164 126 156 140 142C118 138 98 146 84 162Z"/>
+                    <path d="M62 196C86 200 108 192 122 178C98 174 78 182 62 196Z"/>
+                </g>
+            </svg>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Se você sente que é hora de iniciar seu processo, estou aqui para te ouvir. Atendimentos online com privacidade e ética.</p>
-    <a class="whatsapp-button" href="https://wa.me/5511947277497" target="_blank">Agendar pelo WhatsApp</a>
-  </section>
+            <!-- Grid Principal do Hero: Texto à esquerda + Foto 1 à direita -->
+            <div class="relative z-10 max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+                    <!-- Coluna de Texto -->
+                    <div class="lg:col-span-7 text-center lg:text-left">
+                        <!-- Kicker Editorial -->
+                        <div class="inline-flex flex-col items-center lg:items-start mb-6 reveal">
+                            <span class="font-serif uppercase tracking-[0.22em] text-xs sm:text-sm text-bordeaux-muted font-medium">
+                                Psicologia Clínica &bull; Psicanálise
+                            </span>
+                            <span class="w-40 sm:w-52 h-[1px] bg-bordeaux-muted/45 mt-3"></span>
+                        </div>
 
-  <footer>
-    <p>&copy; 2025 Natacha Szmidke | Psicóloga CRP 06/124744</p>
-  </footer>
+                        <!-- Título Principal em Serifada Itálica -->
+                        <h1 class="font-serif italic text-4xl sm:text-5xl lg:text-[3.4rem] text-bordeaux font-normal tracking-tight leading-[1.12] mb-6 reveal">
+                            Um espaço de escuta, acolhimento e novos sentidos.
+                        </h1>
 
+                        <!-- Subtítulo -->
+                        <p class="text-base sm:text-lg text-ink/90 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-9 font-light reveal">
+                            Atendimento psicológico online para adolescentes e adultos, com ética, sigilo e respeito à singularidade da sua história.
+                        </p>
+
+                        <!-- Botões de Ação -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8 reveal">
+                            <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-bordeaux text-cream text-sm sm:text-base font-medium hover:bg-bordeaux-dark transition-all shadow-editorial">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12.031 2C6.508 2 2.015 6.493 2.015 12.016c0 1.763.461 3.485 1.337 5.002L2 22l5.106-1.339a9.97 9.97 0 004.925 1.298h.004c5.522 0 10.015-4.494 10.015-10.016 0-2.676-1.042-5.191-2.934-7.083A9.95 9.95 0 0012.031 2zm5.894 14.23c-.249.701-1.448 1.34-2.01 1.423-.515.077-1.183.109-1.91-.122-.442-.14-1.008-.327-1.734-.64-3.051-1.317-5.043-4.404-5.195-4.607-.152-.202-1.242-1.652-1.242-3.152 0-1.5.786-2.238 1.065-2.542.279-.304.609-.38.812-.38.203 0 .406.002.583.011.187.009.439-.071.686.523.254.609.863 2.106.939 2.258.076.152.127.33.025.533-.101.202-.152.33-.304.507-.152.178-.32.397-.457.533-.152.152-.31.317-.133.621.178.305.789 1.302 1.694 2.109 1.164 1.038 2.146 1.36 2.451 1.512.304.152.482.127.66-.076.177-.203.761-.888.964-1.193.203-.304.406-.254.685-.152.279.101 1.776.837 2.081.99.304.152.507.228.583.355.076.127.076.736-.173 1.437z"/>
+                                </svg>
+                                <span>Agendar pelo WhatsApp</span>
+                            </a>
+
+                            <a href="#terapia"
+                               class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 rounded-full border border-bordeaux/50 text-bordeaux text-sm sm:text-base font-medium hover:bg-rose-soft hover:border-bordeaux transition-all">
+                                Conhecer meu trabalho
+                            </a>
+                        </div>
+
+                        <!-- Selo discreto de credenciais -->
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-cream-rose border border-rose-border/80 text-xs sm:text-sm text-ink-muted reveal">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux"></span>
+                            <span>CRP 06/124744 &bull; Atendimento Online via Google Meet</span>
+                        </div>
+                    </div>
+
+                    <!-- Coluna da Foto 1 (Destaque Editorial) -->
+                    <div class="lg:col-span-5 reveal">
+                        <div class="relative max-w-sm mx-auto">
+                            <!-- Moldura deslocada em rosa antigo -->
+                            <div class="absolute inset-0 rounded-3xl border border-rose-border translate-x-3 translate-y-3 -z-10 bg-rose-soft/40"></div>
+
+                            <!-- Container da Foto 1 com Fallback Elegante -->
+                            <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-rose-border shadow-editorial bg-cream-rose">
+                                <img src="natacha02.jpeg"
+                                     alt="Natacha Szmidke — Psicóloga Clínica"
+                                     class="w-full h-full object-cover object-top"
+                                     onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+
+                                <!-- Fallback exibido automaticamente se natacha02.jpeg ainda não estiver carregada -->
+                                <div class="hidden w-full h-full flex flex-col items-center justify-center p-8 text-center bg-cream-rose">
+                                    <div class="w-16 h-16 rounded-full bg-rose-soft border border-rose-border flex items-center justify-center mb-4 text-bordeaux-muted">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="font-serif italic text-xl text-bordeaux mb-1.5">Sua foto aqui (natacha02.jpeg)</p>
+                                    <p class="text-xs text-ink-muted max-w-[210px] leading-relaxed">
+                                        Envie o arquivo <strong class="font-medium text-bordeaux">natacha02.jpeg</strong> na mesma pasta do site no GitHub.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. SOBRE MIM (FOTO 2 + LINHA DO TEMPO) ==================== -->
+        <section id="sobre" class="py-20 sm:py-28 px-6 bg-cream-rose/60 border-t border-rose-border/50">
+            <div class="max-w-5xl mx-auto">
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center mb-14 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Trajetória &amp; Formação</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal">
+                        Sobre Mim
+                    </h2>
+                </div>
+
+                <!-- Grid 2 Colunas: Foto 2 à esquerda + Bio à direita -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    <!-- Coluna Esquerda: Foto 2 com Moldura Editorial Complementar -->
+                    <div class="lg:col-span-5 reveal">
+                        <div class="relative max-w-sm mx-auto">
+                            <!-- Detalhe decorativo deslocado para o lado oposto -->
+                            <div class="absolute inset-0 rounded-3xl border border-rose-border -translate-x-3 translate-y-3 -z-10 bg-cream"></div>
+
+                            <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-rose-border shadow-editorial bg-cream">
+                                <img src="natacha01.jpeg"
+                                     alt="Natacha Szmidke em atendimento clínico"
+                                     class="w-full h-full object-cover object-top"
+                                     onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');">
+
+                                <!-- Fallback exibido automaticamente se natacha01.jpeg ainda não estiver carregada -->
+                                <div class="hidden w-full h-full flex flex-col items-center justify-center p-8 text-center bg-cream">
+                                    <div class="w-16 h-16 rounded-full bg-rose-soft border border-rose-border flex items-center justify-center mb-4 text-bordeaux-muted">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 19.5h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z"/>
+                                        </svg>
+                                    </div>
+                                    <p class="font-serif italic text-xl text-bordeaux mb-1.5">Sua foto aqui (natacha01.jpeg)</p>
+                                    <p class="text-xs text-ink-muted max-w-[210px] leading-relaxed">
+                                        Envie o arquivo <strong class="font-medium text-bordeaux">natacha01.jpeg</strong> na mesma pasta do site no GitHub.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coluna Direita: Texto Biográfico Acolhedor -->
+                    <div class="lg:col-span-7 space-y-5 text-ink/90 text-base leading-relaxed reveal">
+                        <p>
+                            Sou <strong class="font-medium text-bordeaux">Natacha Szmidke</strong>, psicóloga clínica formada pela Universidade Anhanguera em 2014, com uma trajetória na escuta iniciada ainda em 2013 por meio de triagens e grupos terapêuticos.
+                        </p>
+                        <p>
+                            Durante anos atuei em clínicas conveniadas e no consultório presencial, acompanhando adolescentes e adultos em seus processos. Desde 2022, conduzo minha clínica própria online — período em que também participei de projeto social com atendimentos acessíveis e atuei na diretoria de cuidado interno voltada ao bem-estar de colegas psicólogos.
+                        </p>
+                        <p>
+                            Atualmente aprofundo meu percurso na formação em Psicanálise e na graduação em Direito, unindo rigor ético, escuta sensível e um olhar ampliado sobre o sujeito, suas relações e o mundo em que vive.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Linha do Tempo Vertical Contínua -->
+                <div class="max-w-3xl mx-auto mt-16 sm:mt-20 reveal">
+                    <h3 class="font-serif italic text-2xl sm:text-3xl text-bordeaux text-center mb-10">
+                        Minha Trajetória
+                    </h3>
+
+                    <div class="relative border-l border-rose-border ml-3 sm:ml-4 space-y-6 pl-7 sm:pl-9">
+                        <!-- Marco 1 -->
+                        <div class="relative">
+                            <span class="absolute -left-[34px] sm:-left-[42px] top-6 w-3 h-3 rounded-full bg-bordeaux ring-4 ring-cream-rose"></span>
+                            <div class="bg-cream border border-rose-border rounded-2xl p-6 shadow-soft">
+                                <span class="font-serif italic text-base sm:text-lg text-bordeaux-muted block mb-1">2013 – 2014</span>
+                                <h4 class="text-base sm:text-lg font-semibold text-bordeaux mb-1.5">Graduação em Psicologia</h4>
+                                <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Formação pela Universidade Anhanguera e início da prática clínica em estágios supervisionados com triagem e grupos terapêuticos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Marco 2 -->
+                        <div class="relative">
+                            <span class="absolute -left-[34px] sm:-left-[42px] top-6 w-3 h-3 rounded-full bg-bordeaux ring-4 ring-cream-rose"></span>
+                            <div class="bg-cream border border-rose-border rounded-2xl p-6 shadow-soft">
+                                <span class="font-serif italic text-base sm:text-lg text-bordeaux-muted block mb-1">2014 – 2022</span>
+                                <h4 class="text-base sm:text-lg font-semibold text-bordeaux mb-1.5">Atendimento Presencial</h4>
+                                <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Experiência clínica presencial e em clínicas conveniadas, consolidando a escuta qualificada de adolescentes e adultos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Marco 3 -->
+                        <div class="relative">
+                            <span class="absolute -left-[34px] sm:-left-[42px] top-6 w-3 h-3 rounded-full bg-bordeaux ring-4 ring-cream-rose"></span>
+                            <div class="bg-cream border border-rose-border rounded-2xl p-6 shadow-soft">
+                                <span class="font-serif italic text-base sm:text-lg text-bordeaux-muted block mb-1">2022 – Atual</span>
+                                <h4 class="text-base sm:text-lg font-semibold text-bordeaux mb-1.5">Clínica Online e Projeto Social</h4>
+                                <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Início da clínica própria online e atuação em projeto social com valores acessíveis, incluindo a diretoria de cuidado interno voltada ao bem-estar de colegas psicólogos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Marco 4 -->
+                        <div class="relative">
+                            <span class="absolute -left-[34px] sm:-left-[42px] top-6 w-3 h-3 rounded-full bg-bordeaux ring-4 ring-cream-rose"></span>
+                            <div class="bg-cream border border-rose-border rounded-2xl p-6 shadow-soft">
+                                <span class="font-serif italic text-base sm:text-lg text-bordeaux-muted block mb-1">2024 – Atual</span>
+                                <h4 class="text-base sm:text-lg font-semibold text-bordeaux mb-1.5">Formação em Psicanálise</h4>
+                                <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Aprofundamento teórico e clínico na escuta psicanalítica sobre o sujeito e suas singularidades.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Marco 5 -->
+                        <div class="relative">
+                            <span class="absolute -left-[34px] sm:-left-[42px] top-6 w-3 h-3 rounded-full bg-bordeaux ring-4 ring-cream-rose"></span>
+                            <div class="bg-cream border border-rose-border rounded-2xl p-6 shadow-soft">
+                                <span class="font-serif italic text-base sm:text-lg text-bordeaux-muted block mb-1">2025 – Atual</span>
+                                <h4 class="text-base sm:text-lg font-semibold text-bordeaux mb-1.5">Graduação em Direito</h4>
+                                <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Integração de saberes entre psicologia e justiça para um olhar ainda mais amplo sobre o sujeito e a sociedade.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. SOBRE A TERAPIA & EXPERIÊNCIA CLÍNICA ==================== -->
+        <section id="terapia" class="relative py-20 sm:py-28 px-6 border-t border-rose-border/50 overflow-hidden">
+            <!-- Detalhe botânico sutil no canto direito -->
+            <svg class="pointer-events-none select-none absolute top-8 -right-12 w-44 sm:w-56 opacity-45" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+                <g stroke="#5A1824" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M225 190C185 148 145 108 95 62"/>
+                    <path d="M126 90C125 68 110 52 90 48C94 70 108 86 126 90Z"/>
+                    <path d="M162 126C165 102 152 82 132 76C134 98 145 118 162 126Z"/>
+                    <path d="M196 160C202 136 190 114 172 106C172 128 181 148 196 160Z"/>
+                    <path d="M142 106C120 104 100 112 88 126C108 128 128 122 142 106Z"/>
+                    <path d="M178 142C154 140 134 148 122 162C144 164 164 157 178 142Z"/>
+                </g>
+            </svg>
+
+            <div class="relative z-10 max-w-5xl mx-auto">
+                <!-- Cabeçalho da Seção -->
+                <div class="text-center mb-12 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Escuta Psicanalítica</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal">
+                        Sobre a Terapia
+                    </h2>
+                </div>
+
+                <!-- Explicação da Psicanálise -->
+                <div class="max-w-3xl mx-auto bg-cream-rose border border-rose-border rounded-2xl p-8 sm:p-10 shadow-soft text-center mb-16 reveal">
+                    <p class="text-base sm:text-lg text-ink/90 leading-relaxed mb-4">
+                        A psicoterapia de orientação psicanalítica oferece um espaço de escuta profunda para que você possa falar livremente sobre seus pensamentos, afetos, conflitos e repetições — sem julgamentos e sem conselhos prontos.
+                    </p>
+                    <p class="text-sm sm:text-base text-ink-muted leading-relaxed">
+                        É no próprio movimento da fala, sustentado por uma escuta atenta e ética, que se torna possível elaborar angústias, reconhecer seus desejos e construir novos sentidos para a própria história.
+                    </p>
+                </div>
+
+                <!-- Áreas de Experiência Clínica -->
+                <div class="reveal">
+                    <div class="text-center mb-9">
+                        <h3 class="font-serif italic text-2xl sm:text-3xl text-bordeaux mb-2">
+                            Experiência Clínica &amp; Demandas Atendidas
+                        </h3>
+                        <p class="text-sm sm:text-base text-ink-muted max-w-2xl mx-auto">
+                            Cada percurso é único — abaixo estão algumas das principais vivências e públicos com os quais possuo experiência clínica:
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux flex-shrink-0"></span>
+                            <span>Burnout e esgotamento profissional</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux flex-shrink-0"></span>
+                            <span>Profissionais de TI</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux flex-shrink-0"></span>
+                            <span>Acadêmicos (mestrandos e doutorandos)</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux flex-shrink-0"></span>
+                            <span>Altas habilidades / Superdotação</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux flex-shrink-0"></span>
+                            <span>Transtorno de Personalidade Borderline</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux-muted flex-shrink-0"></span>
+                            <span>Ansiedade e angústia</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux-muted flex-shrink-0"></span>
+                            <span>Relações familiares e afetivas</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux-muted flex-shrink-0"></span>
+                            <span>Dificuldades profissionais e inadequação</span>
+                        </div>
+                        <div class="flex items-center gap-3.5 px-5 py-4 rounded-2xl bg-cream-rose/70 border border-rose-border text-ink text-sm sm:text-base font-medium shadow-soft hover:border-bordeaux-muted transition-colors">
+                            <span class="w-2 h-2 rounded-full bg-bordeaux-muted flex-shrink-0"></span>
+                            <span>Experiências da adolescência</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. COMO FUNCIONA O ATENDIMENTO ONLINE ==================== -->
+        <section id="como-funciona" class="py-20 sm:py-28 px-6 bg-cream-rose/60 border-t border-rose-border/50">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Passo a Passo</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal">
+                        Como Funciona o Atendimento Online
+                    </h2>
+                </div>
+
+                <!-- 3 Cards em Passos Claros -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <!-- Passo 01 -->
+                    <article class="bg-cream border border-rose-border rounded-2xl p-8 shadow-soft flex flex-col">
+                        <span class="font-serif italic text-4xl text-bordeaux/80 mb-4">01</span>
+                        <h3 class="text-lg font-semibold text-bordeaux mb-3">Primeiro contato</h3>
+                        <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                            Pelo WhatsApp, para verificarmos a disponibilidade e combinarmos o melhor horário para você.
+                        </p>
+                    </article>
+
+                    <!-- Passo 02 -->
+                    <article class="bg-cream border border-rose-border rounded-2xl p-8 shadow-soft flex flex-col">
+                        <span class="font-serif italic text-4xl text-bordeaux/80 mb-4">02</span>
+                        <h3 class="text-lg font-semibold text-bordeaux mb-3">Primeira sessão</h3>
+                        <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                            Um espaço inicial para nos conhecermos, escutar sua demanda, alinharmos expectativas e combinarmos a frequência.
+                        </p>
+                    </article>
+
+                    <!-- Passo 03 -->
+                    <article class="bg-cream border border-rose-border rounded-2xl p-8 shadow-soft flex flex-col">
+                        <span class="font-serif italic text-4xl text-bordeaux/80 mb-4">03</span>
+                        <h3 class="text-lg font-semibold text-bordeaux mb-3">Processo contínuo</h3>
+                        <p class="text-sm sm:text-base text-ink/85 leading-relaxed">
+                            Sessões online via Google Meet, em ambiente privativo, sigiloso e acolhedor, respeitando o seu ritmo.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 6. SOBRE OS VALORES ==================== -->
+        <section id="valores" class="relative py-20 sm:py-28 px-6 border-t border-rose-border/50 overflow-hidden">
+            <!-- Forma orgânica sutil no fundo -->
+            <div class="pointer-events-none select-none absolute -bottom-16 -right-16 w-72 h-72 rounded-full bg-rose-soft/60 blur-2xl" aria-hidden="true"></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto text-center">
+                <div class="mb-10 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Investimento &amp; Compromisso</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal">
+                        Sobre os Valores
+                    </h2>
+                </div>
+
+                <!-- Caixa Central Editorial (#FAF4F5 com borda #E3CDD1) -->
+                <div class="bg-cream-rose border border-rose-border rounded-2xl p-8 sm:p-11 shadow-editorial mb-7 reveal">
+                    <p class="text-base sm:text-lg text-ink/90 leading-relaxed font-normal">
+                        Freud já dizia que o valor da sessão não é apenas econômico, mas simbólico. O pagamento participa da própria construção do processo analítico. Por isso, não informo valores diretamente no site — conversamos caso a caso, de acordo com as possibilidades e o compromisso com o processo.
+                    </p>
+                </div>
+
+                <!-- Faixa de Destaque em Rosa Antigo -->
+                <div class="bg-rose-border/60 rounded-xl px-6 py-4 mb-9 reveal">
+                    <p class="text-bordeaux font-semibold text-sm sm:text-base tracking-wide">
+                        Agenda aberta para novos pacientes &bull; Atendimento 100% online
+                    </p>
+                </div>
+
+                <!-- Botão Direto WhatsApp -->
+                <div class="reveal">
+                    <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-bordeaux text-cream text-sm sm:text-base font-medium hover:bg-bordeaux-dark transition-all shadow-editorial">
+                        <span>Consultar valores pelo WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 7. DÚVIDAS FREQUENTES (FAQ) ==================== -->
+        <section id="duvidas" class="py-20 sm:py-28 px-6 bg-cream-rose/60 border-t border-rose-border/50">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Informações Práticas</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal">
+                        Dúvidas Frequentes
+                    </h2>
+                </div>
+
+                <!-- Acordeão Interativo -->
+                <div class="space-y-3.5 reveal" id="faq-list">
+                    <!-- Pergunta 1 -->
+                    <div class="faq-item bg-cream border border-rose-border rounded-2xl overflow-hidden shadow-soft" data-open="false">
+                        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+                            <span class="font-medium text-bordeaux text-base">Como funcionam as sessões online?</span>
+                            <span class="faq-icon flex-shrink-0 w-7 h-7 rounded-full border border-rose-border flex items-center justify-center text-bordeaux text-lg leading-none">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-inner">
+                                <p class="px-6 pb-6 text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    As sessões são realizadas por videochamada via <strong>Google Meet</strong>, com duração média de <strong>50 minutos</strong>. Para preservar a privacidade e o aproveitamento do encontro, recomenda-se estar em um local tranquilo e privativo, utilizando fones de ouvido.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 2 -->
+                    <div class="faq-item bg-cream border border-rose-border rounded-2xl overflow-hidden shadow-soft" data-open="false">
+                        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+                            <span class="font-medium text-bordeaux text-base">Você atende por convênio ou emite recibo para reembolso?</span>
+                            <span class="faq-icon flex-shrink-0 w-7 h-7 rounded-full border border-rose-border flex items-center justify-center text-bordeaux text-lg leading-none">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-inner">
+                                <p class="px-6 pb-6 text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    O atendimento é particular, com emissão de recibo via <strong>Receita Saúde</strong> para que você possa solicitar reembolso junto ao seu convênio médico (quando houver cobertura) e utilizar na declaração do Imposto de Renda.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 3 -->
+                    <div class="faq-item bg-cream border border-rose-border rounded-2xl overflow-hidden shadow-soft" data-open="false">
+                        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+                            <span class="font-medium text-bordeaux text-base">Como funciona o atendimento para adolescentes?</span>
+                            <span class="faq-icon flex-shrink-0 w-7 h-7 rounded-full border border-rose-border flex items-center justify-center text-bordeaux text-lg leading-none">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-inner">
+                                <p class="px-6 pb-6 text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    A primeira conversa é feita com os responsáveis legais para alinhamento e autorização do acompanhamento, preservando integralmente o <strong>sigilo clínico</strong> do adolescente durante todo o processo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 4 -->
+                    <div class="faq-item bg-cream border border-rose-border rounded-2xl overflow-hidden shadow-soft" data-open="false">
+                        <button type="button" class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left" aria-expanded="false">
+                            <span class="font-medium text-bordeaux text-base">Qual a frequência das sessões?</span>
+                            <span class="faq-icon flex-shrink-0 w-7 h-7 rounded-full border border-rose-border flex items-center justify-center text-bordeaux text-lg leading-none">+</span>
+                        </button>
+                        <div class="faq-content">
+                            <div class="faq-inner">
+                                <p class="px-6 pb-6 text-sm sm:text-base text-ink/85 leading-relaxed">
+                                    Geralmente as sessões são semanais, favorecendo a continuidade do trabalho analítico, mas a frequência pode ser combinada conforme a necessidade clínica e a realidade de cada pessoa.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 8. CONTATO & CANAIS ==================== -->
+        <section id="contato" class="relative py-20 sm:py-28 px-6 border-t border-rose-border/50 overflow-hidden">
+            <!-- Ramo botânico delicado no canto inferior direito -->
+            <svg class="pointer-events-none select-none absolute -bottom-6 -right-8 w-44 sm:w-56 opacity-55" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+                <g stroke="#5A1824" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M225 225C185 182 145 142 98 98"/>
+                    <path d="M126 125C125 103 110 87 90 83C94 105 108 121 126 125Z"/>
+                    <path d="M162 160C165 136 152 116 132 110C134 132 145 152 162 160Z"/>
+                    <path d="M142 140C120 138 100 146 88 160C108 162 128 156 142 140Z"/>
+                    <path d="M178 176C154 174 134 182 122 196C144 198 164 191 178 176Z"/>
+                </g>
+            </svg>
+
+            <div class="relative z-10 max-w-5xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                    <span class="font-serif uppercase tracking-[0.22em] text-xs text-bordeaux-muted">Contato &amp; Canais</span>
+                    <div class="w-24 h-[1px] bg-bordeaux-muted/40 mx-auto mt-2.5 mb-4"></div>
+                    <h2 class="font-serif italic text-3xl sm:text-4xl lg:text-5xl text-bordeaux font-normal mb-4">
+                        Vamos conversar?
+                    </h2>
+                    <p class="text-base sm:text-lg text-ink/85 leading-relaxed font-light">
+                        Se você sente que é hora de iniciar seu processo, estou aqui para te ouvir.
+                    </p>
+                </div>
+
+                <!-- 3 Cards de Contato -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+                    <!-- Card 1: WhatsApp -->
+                    <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="group bg-cream-rose border border-rose-border rounded-2xl p-7 shadow-soft hover:border-bordeaux hover:-translate-y-1 transition-all flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-full bg-bordeaux text-cream flex items-center justify-center mb-4 group-hover:bg-bordeaux-dark transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.031 2C6.508 2 2.015 6.493 2.015 12.016c0 1.763.461 3.485 1.337 5.002L2 22l5.106-1.339a9.97 9.97 0 004.925 1.298h.004c5.522 0 10.015-4.494 10.015-10.016 0-2.676-1.042-5.191-2.934-7.083A9.95 9.95 0 0012.031 2zm5.894 14.23c-.249.701-1.448 1.34-2.01 1.423-.515.077-1.183.109-1.91-.122-.442-.14-1.008-.327-1.734-.64-3.051-1.317-5.043-4.404-5.195-4.607-.152-.202-1.242-1.652-1.242-3.152 0-1.5.786-2.238 1.065-2.542.279-.304.609-.38.812-.38.203 0 .406.002.583.011.187.009.439-.071.686.523.254.609.863 2.106.939 2.258.076.152.127.33.025.533-.101.202-.152.33-.304.507-.152.178-.32.397-.457.533-.152.152-.31.317-.133.621.178.305.789 1.302 1.694 2.109 1.164 1.038 2.146 1.36 2.451 1.512.304.152.482.127.66-.076.177-.203.761-.888.964-1.193.203-.304.406-.254.685-.152.279.101 1.776.837 2.081.99.304.152.507.228.583.355.076.127.076.736-.173 1.437z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-[0.18em] text-bordeaux-muted font-medium mb-1">WhatsApp</span>
+                        <h3 class="font-serif italic text-xl text-bordeaux mb-2">(11) 94727-7497</h3>
+                        <p class="text-sm text-ink-muted">Agendamento e dúvidas</p>
+                    </a>
+
+                    <!-- Card 2: Instagram -->
+                    <a href="https://instagram.com/natachaszmidke"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="group bg-cream-rose border border-rose-border rounded-2xl p-7 shadow-soft hover:border-bordeaux hover:-translate-y-1 transition-all flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-full bg-bordeaux text-cream flex items-center justify-center mb-4 group-hover:bg-bordeaux-dark transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-[0.18em] text-bordeaux-muted font-medium mb-1">Instagram</span>
+                        <h3 class="font-serif italic text-xl text-bordeaux mb-2">@natachaszmidke</h3>
+                        <p class="text-sm text-ink-muted">Conteúdos e rotina clínica</p>
+                    </a>
+
+                    <!-- Card 3: Perfil da Empresa no Google -->
+                    <a href="https://share.google/dB0mMydSPnMdyl3ya"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="group bg-cream-rose border border-rose-border rounded-2xl p-7 shadow-soft hover:border-bordeaux hover:-translate-y-1 transition-all flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-full bg-bordeaux text-cream flex items-center justify-center mb-4 group-hover:bg-bordeaux-dark transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xs uppercase tracking-[0.18em] text-bordeaux-muted font-medium mb-1">Google</span>
+                        <h3 class="font-serif italic text-xl text-bordeaux mb-2">Perfil da Empresa</h3>
+                        <p class="text-sm text-ink-muted">Ver perfil e avaliações no Google</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== 9. RODAPÉ ==================== -->
+    <footer class="bg-cream-rose border-t border-rose-border/60 py-9 px-6 text-center">
+        <div class="max-w-5xl mx-auto">
+            <p class="font-serif italic text-lg text-bordeaux mb-1">Natacha Szmidke</p>
+            <p class="text-xs sm:text-sm text-ink-muted">
+                &copy; <span id="year"></span> Natacha Szmidke &bull; Psicóloga Clínica &bull; CRP 06/124744
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== BOTÃO FLUTUANTE DISCRETO DO WHATSAPP ==================== -->
+    <a href="https://wa.me/5511947277497?text=Ol%C3%A1%20Natacha%2C%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20atendimento%20psicol%C3%B3gico."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Falar pelo WhatsApp"
+       class="fixed bottom-5 right-5 z-40 p-3.5 rounded-full bg-bordeaux text-cream shadow-editorial hover:bg-bordeaux-dark hover:scale-105 transition-all flex items-center justify-center border border-rose-border/40">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.031 2C6.508 2 2.015 6.493 2.015 12.016c0 1.763.461 3.485 1.337 5.002L2 22l5.106-1.339a9.97 9.97 0 004.925 1.298h.004c5.522 0 10.015-4.494 10.015-10.016 0-2.676-1.042-5.191-2.934-7.083A9.95 9.95 0 0012.031 2zm5.894 14.23c-.249.701-1.448 1.34-2.01 1.423-.515.077-1.183.109-1.91-.122-.442-.14-1.008-.327-1.734-.64-3.051-1.317-5.043-4.404-5.195-4.607-.152-.202-1.242-1.652-1.242-3.152 0-1.5.786-2.238 1.065-2.542.279-.304.609-.38.812-.38.203 0 .406.002.583.011.187.009.439-.071.686.523.254.609.863 2.106.939 2.258.076.152.127.33.025.533-.101.202-.152.33-.304.507-.152.178-.32.397-.457.533-.152.152-.31.317-.133.621.178.305.789 1.302 1.694 2.109 1.164 1.038 2.146 1.36 2.451 1.512.304.152.482.127.66-.076.177-.203.761-.888.964-1.193.203-.304.406-.254.685-.152.279.101 1.776.837 2.081.99.304.152.507.228.583.355.076.127.076.736-.173 1.437z"/>
+        </svg>
+    </a>
+
+    <!-- ==================== SCRIPTS INTERATIVOS ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Atualiza o ano automaticamente no rodapé
+            const yearEl = document.getElementById('year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // 2. Menu Mobile (Abrir / Fechar)
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('icon-open');
+            const iconClose = document.getElementById('icon-close');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMobileMenu(forceClose = false) {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                const shouldClose = forceClose || isOpen;
+
+                if (shouldClose) {
+                    mobileMenu.classList.add('hidden');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    mobileMenu.classList.remove('hidden');
+                    iconOpen.classList.add('hidden');
+                    iconClose.classList.remove('hidden');
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => toggleMobileMenu());
+            }
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => toggleMobileMenu(true));
+            });
+
+            // 3. Sombra sutil na barra fixa ao rolar
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 16) {
+                    navbar.classList.add('shadow-soft');
+                } else {
+                    navbar.classList.remove('shadow-soft');
+                }
+            }, { passive: true });
+
+            // 4. Acordeão das Dúvidas Frequentes
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const trigger = item.querySelector('.faq-trigger');
+                trigger.addEventListener('click', () => {
+                    const isCurrentlyOpen = item.getAttribute('data-open') === 'true';
+
+                    faqItems.forEach(other => {
+                        other.setAttribute('data-open', 'false');
+                        other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                    });
+
+                    if (!isCurrentlyOpen) {
+                        item.setAttribute('data-open', 'true');
+                        trigger.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // 5. Animação suave de entrada ao rolar (IntersectionObserver)
+            const revealElements = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.10,
+                    rootMargin: '0px 0px -24px 0px'
+                });
+
+                revealElements.forEach(el => observer.observe(el));
+            } else {
+                revealElements.forEach(el => el.classList.add('is-visible'));
+            }
+        });
+    </script>
 </body>
 </html>
-
-
